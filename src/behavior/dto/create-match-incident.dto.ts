@@ -1,0 +1,23 @@
+import { IsEnum, IsInt, IsString, IsUUID, Max, Min, Length } from 'class-validator';
+import { BehaviorCategory } from '../entities/behavior-event.entity';
+
+export class CreateMatchIncidentDto {
+  @IsUUID()
+  competitorId: string;
+
+  @IsEnum(BehaviorCategory)
+  category: BehaviorCategory;
+
+  @IsString()
+  @Length(2, 40)
+  type: string;
+
+  @IsInt()
+  @Min(1)
+  @Max(5)
+  severity: number;
+
+  @IsString()
+  @Length(5, 1000)
+  description: string;
+}
