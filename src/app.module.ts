@@ -42,6 +42,10 @@ import { BehaviorModule } from './behavior/behavior.module';
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
 
+        ssl: {
+          rejectUnauthorized: true,
+        },
+
         // Recomendado en Nest + TypeORM
         autoLoadEntities: true,
         synchronize: configService.get<string>('DB_SYNC') === 'true',
